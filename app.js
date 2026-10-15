@@ -33,7 +33,11 @@ const satellite = new ol.layer.Tile({source:new ol.source.XYZ({
   attributions:'Imagery © <a href="https://www.esri.com/" target="_blank" rel="noopener">Esri</a>, Maxar, Earthstar Geographics, and the GIS User Community'
 })});
 const street = new ol.layer.Tile({visible:false, source:new ol.source.OSM({maxZoom:19})});
-const map = new ol.Map({target:'map', layers:[satellite,street],
+const outlineLayer = new ol.layer.Vector({
+  zIndex:10,
+  style:new ol.style.Style({stroke:new ol.style.Stroke({color:'#ff6b22',width:3})})
+});
+const map = new ol.Map({target:'map', layers:[satellite,street,outlineLayer],
   controls:[new ol.control.Attribution({collapsible:true,collapsed:true}),new ol.control.ScaleLine({units:'metric'})],
   view:new ol.View({center:ol.proj.fromLonLat([126.3522,35.0842]),zoom:16,maxZoom:23,minZoom:3,enableRotation:true})
 });
@@ -69,6 +73,7 @@ async function select(record) {
   const generation=++state.generation;
   clearTimeout(loadTimeout);$('retry').hidden=true;
   state.selected=record;state.bounds=record.bounds;
+  outlineLayer.setSource(record.outlineUrl ? new ol.source.Vector({url:record.outlineUrl,format:new ol.format.GeoJSON()}) : null);
   if (state.layer) {map.removeLayer(state.layer);state.layer.dispose();}
   if (state.source) state.source.dispose();
   state.layer=null;state.source=null;

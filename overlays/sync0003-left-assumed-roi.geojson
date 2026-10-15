@@ -1,0 +1,80 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "sync0003-left-assumed-roi",
+        "name": "SYNC0003SET 왼쪽 가정 ROI",
+        "sourceTrack": "SYNC0003SET",
+        "side": "left-southwest",
+        "assumed": true,
+        "coordinateSystem": "WGS84",
+        "areaM2": 17679.5,
+        "areaHa": 1.768,
+        "lengthM": 203.6,
+        "widthM": 86.8,
+        "observedWidthM": 26.8,
+        "assumedExtensionM": 60.0,
+        "extensionBearingDeg": 223.0,
+        "addedAreaHa": 1.222,
+        "surveyHeadingFromEastDeg": -43.0,
+        "observedPassCount": 5,
+        "lineSpacingEstimateM": 5.36,
+        "crossTrackMarginM": 2.68,
+        "vertexCount": 4,
+        "method": "Length follows the five remaining left survey passes. Extend the southwest outer edge of the observed strip by an additional 60 m, perpendicular to the survey direction. The 60 m is added width, not total ROI width.",
+        "limitation": "User-requested hypothetical area. The southwest extension has no supporting GPS track or measured image footprint.",
+        "observedStripPolygon": [
+          [
+            126.35077147,
+            35.08451747
+          ],
+          [
+            126.35057092,
+            35.0843407
+          ],
+          [
+            126.35220411,
+            35.08308883
+          ],
+          [
+            126.35240465,
+            35.0832656
+          ],
+          [
+            126.35077147,
+            35.08451747
+          ]
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              126.35077147,
+              35.08451747
+            ],
+            [
+              126.35012221,
+              35.08394516
+            ],
+            [
+              126.35175539,
+              35.0826933
+            ],
+            [
+              126.35240465,
+              35.0832656
+            ],
+            [
+              126.35077147,
+              35.08451747
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
