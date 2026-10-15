@@ -6,14 +6,19 @@
       "title": "갯벌 가입항 드론",
       "date": "2026-10-15",
       "type": "RGB 모자이크",
-      "driveFileId": "1JD6RFwMBOR7uEOhcTIQnwQjqMa4CHa2x",
-      "sizeBytes": 102643648,
+      "driveFileId": "14zyal0Ltsh2vUmwhgyHcedO4fo9vLuMF",
+      "sizeBytes": 9985587,
       "width": 8541,
       "height": 8113,
-      "bounds": [126.34755748160646,35.08053719551407,126.35692294433646,35.08784983183807],
+      "bounds": [
+        126.34755748160646,
+        35.08053719551407,
+        126.35692294433646,
+        35.08784983183807
+      ],
       "thumbnail": "preview.webp",
       "originalUrl": "https://drive.google.com/file/d/1JD6RFwMBOR7uEOhcTIQnwQjqMa4CHa2x/view",
-      "whiteNodata": true
+      "whiteNodata": false
     }
   ]
 }
