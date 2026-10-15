@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#173d36">
+  <meta name="description" content="위성지도 위에서 현장 관측 모자이크를 고해상도로 살펴보세요.">
+  <title>현장 관측 모자이크 뷰어</title>
+  <link rel="stylesheet" href="vendor/ol.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="vendor/geotiff.js"></script>
+  <script defer src="vendor/ol.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="./" aria-label="현장 관측 모자이크 뷰어 홈"><span class="brand-mark">◈</span><span>현장 관측<span class="brand-sub">MOSAIC EXPLORER</span></span></a>
+    <div class="header-note"><span class="live-dot"></span>위성지도와 현장을 한눈에</div>
+    <button id="library-toggle" class="mobile-only pill" aria-expanded="false" aria-controls="sidebar">관측 목록</button>
+  </header>
+  <main>
+    <aside id="sidebar" class="sidebar">
+      <div class="library-intro"><span class="eyebrow">FIELD ARCHIVE</span><h1>관측 모자이크</h1><p>촬영 기록을 선택해 지도로 살펴보세요.</p></div>
+      <div class="search-wrap"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="촬영 이름 검색" aria-label="촬영 이름 검색"></div>
+      <div class="list-heading"><span>촬영 기록</span><span id="count">—</span><button id="refresh" title="목록 새로고침" aria-label="목록 새로고침">↻</button></div>
+      <div id="catalog" class="catalog" aria-label="촬영 기록 목록"></div>
+      <div id="catalog-error" class="notice" hidden></div>
+      <div class="sidebar-bottom"><span class="small-icon">↗</span><div><strong>원본은 Google Drive에</strong><p>선택한 촬영 자료만 불러옵니다.</p></div><a href="https://drive.google.com/drive/folders/1hZtVZDufJE6yzwJcCRKBn0RZ8-xVuc_1" target="_blank" rel="noopener" aria-label="원본 Drive 폴더 열기">열기 ↗</a></div>
+    </aside>
+    <section id="map-section" class="map-section" aria-label="위성지도와 관측 모자이크">
+      <div id="map" tabindex="0" aria-label="확대 및 이동 가능한 관측 지도"></div>
+      <div class="map-heading glass"><span class="eyebrow">SELECTED OBSERVATION</span><h2 id="selected-name">관측 기록을 선택하세요</h2><div id="selected-info" class="selected-info">휠 또는 두 손가락으로 확대할 수 있어요.</div></div>
+      <div id="status" class="status glass" role="status" aria-live="polite" hidden></div>
+      <button id="retry" class="retry pill" hidden>다시 불러오기</button>
+      <div class="map-tools glass" aria-label="지도 조작">
+        <button id="zoom-in" aria-label="확대" title="확대">＋</button><button id="zoom-out" aria-label="축소" title="축소">−</button><span class="divider"></span><button id="fit" aria-label="촬영 영역 전체 보기" title="촬영 영역 전체 보기">⌖</button><button id="north" aria-label="북쪽 방향으로 정렬" title="북쪽 방향으로 정렬">N↑</button><button id="fullscreen" aria-label="전체 화면" title="전체 화면">⛶</button>
+      </div>
+      <div class="base-switch glass" role="group" aria-label="배경지도"><button class="active" id="satellite" aria-pressed="true">위성</button><button id="street" aria-pressed="false">일반지도</button></div>
+      <div class="overlay-control glass">
+        <div class="control-top"><label class="switch-label"><input type="checkbox" id="overlay-visible" checked><span class="switch"></span><strong>관측 영상</strong></label><output id="opacity-value" for="opacity">100%</output></div>
+        <label class="opacity-row"><span>투명</span><input id="opacity" type="range" min="0" max="100" value="100" aria-label="관측 영상 불투명도"><span>선명</span></label>
+        <div class="control-help">투명도를 조절해 위성영상과 비교하세요.</div>
+      </div>
+      <div class="map-footer"><span id="coordinates">WGS84</span><span id="resolution"></span></div>
+      <div class="hint glass" id="hint">드래그로 이동 · 휠로 확대 <button aria-label="도움말 닫기" id="hide-hint">×</button></div>
+    </section>
+  </main>
+  <noscript>이 뷰어를 사용하려면 JavaScript를 켜 주세요.</noscript>
+</body>
+</html>

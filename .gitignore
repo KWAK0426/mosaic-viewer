@@ -1,0 +1,6 @@
+*.tif
+*.tiff
+*.tif.msk
+__pycache__/
+.venv/
+work/
